@@ -25,4 +25,13 @@ Route::prefix('items')->group(function () {
     Route::get('/', [App\Http\Controllers\ItemController::class, 'index']);
     Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
     Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
+    Route::get('/editmove/{id}', [App\Http\Controllers\ItemController::class, 'editmove']);
+    Route::POST('/editapp/{id}', [App\Http\Controllers\CitemController::class, 'editapp']);
+});
+
+Route::prefix('confirms')->group(function () {
+    Route::get('/', [App\Http\Controllers\CitemController::class, 'index']);
+    Route::get('/editmove/{id}', [App\Http\Controllers\CitemController::class, 'editmove']);
+    Route::POST('/editapprove/{id}', [App\Http\Controllers\CitemController::class, 'editapprove']);
+    Route::POST('/editdeny/{id}', [App\Http\Controllers\CitemController::class, 'editdeny']);
 });
