@@ -44,18 +44,10 @@ class ItemController extends Controller
             $this->validate($request, [
                 'name' => 'required|max:100',
             ]);
-
-            // 本DBへ商品登録
-            Item::create([
-                'user_id' => Auth::user()->id,
-                'name' => $request->name,
-                'type' => $request->type,
-                'detail' => $request->detail,
-            ]);
             // 申請DBへ商品登録
             Citem::create([
                 'user_id' => Auth::user()->id,
-                'item_id'=> Item::get()->last()->id,
+                'item_id'=> 0,
                 'name' => $request->name,
                 'type' => $request->type,
                 'detail' => $request->detail,

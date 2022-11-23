@@ -237,7 +237,7 @@ return [
         ],
         [
             'text' => '新商品申請',
-            'url'  => '',  //TODO 
+            'url'  => 'items/add',  //TODO 
             'icon' => 'fas fa-gamepad',
         ],
 
