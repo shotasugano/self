@@ -28,6 +28,17 @@ public function __construct()
 */
 public function editapp (Request $request)
 {
+    $this->validate($request, [
+        'name' => 'required|max:100',
+        'type' => 'required',
+        'detail' => 'required',
+    ],
+    [
+    'name.required' => '名前を入力してください',
+    'name.max' => '名前は１００文字以内で入力してください',
+    'type.required' => '種別を入力してください',
+    'detail.required' => '詳細を入力してください',
+    ]);
        // $img=$request->image;
        // $img_name=$request->image->getClientOriginalName();  //imageはformで設置したname名
         //dd($img)

@@ -13,13 +13,15 @@
     <!-- バリデーションエラーの表示 -->
 
     <!-- 新タスクフォーム -->
-    <table border="1">
-    <tr>
-      <td>{{$item->name}}</td>
-      <td>{{$item->type}}</td>
-      <td>{{$item->detail}}</td>
-    </tr>
-  </table>
+    <div class="card">
+        <table border="1">
+            <tr>
+            <td>{{$item->name}}</td>
+            <td>{{$item->type}}</td>
+            <td>{{$item->detail}}</td>
+            </tr>
+        </table>
+    </div>
     <form action="{{ url('confirms/editaddapprove/{id}') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
     {{ csrf_field() }}
         <!-- アドレス -->

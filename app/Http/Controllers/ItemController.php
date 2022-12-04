@@ -43,7 +43,15 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
-            ]);
+                'type' => 'required',
+                'detail' => 'required',
+            ],
+        [
+            'name.required' => '名前を入力してください',
+            'name.max' => '名前は１００文字以内で入力してください',
+            'type.required' => '種別を入力してください',
+            'detail.required' => '詳細を入力してください',
+        ]);
             // 申請DBへ商品登録
             Citem::create([
                 'user_id' => Auth::user()->id,

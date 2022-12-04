@@ -30,8 +30,11 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
-                            <!-- TODO: 編集ボタン -->
+                                    @can('dv') {{-- 開発部のみに表示される --}}
                                     <td><a href="items/editmove/{{$item->id}}">>>編集</a></td>
+                                    @elsecan('sl&qc')
+                                    <td><a href="items/editmove/{{$item->id}}">>>詳細</a></td>
+                                    @endcan
                                 </tr>
                             @endforeach
                         </tbody>

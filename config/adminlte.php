@@ -239,6 +239,7 @@ return [
             'text' => '新商品申請',
             'url'  => 'items/add',  //TODO 
             'icon' => 'fas fa-gamepad',
+            'can' => 'dv',
         ],
 
         // AdminLTEデフォルト
