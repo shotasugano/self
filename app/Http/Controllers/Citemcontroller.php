@@ -110,6 +110,8 @@ public function editappdelete(Request $request)
             ->get();
             //歴史ページへ移動
             return view('item.history' ,compact('histories'));
+        }else{
+            return view('item.index');
         }
 
     }

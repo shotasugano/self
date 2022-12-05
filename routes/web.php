@@ -24,6 +24,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::group(['middleware' => ['auth', 'can:all']], function () {
     Route::get('/items', [App\Http\Controllers\ItemController::class, 'index']);
     Route::get('/items/editmove/{id}', [App\Http\Controllers\ItemController::class, 'editmove']);
+
+});
+
+Route::group(['middleware' => ['auth', 'can:dv&qc']], function () {
     Route::get('/confirms', [App\Http\Controllers\CitemController::class, 'index']);
 });
 

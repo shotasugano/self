@@ -32,13 +32,17 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('dv', function ($user) {
             return ($user->role == 5);
           });
+          //role0(閲覧)のみ許可
+          Gate::define('sl', function ($user) {
+            return ($user->role == 0);
+          });
         //role0,10( 営業と品管)のみ許可
         Gate::define('sl&qc', function ($user) {
-            return ($user->role == 0 || $user->role = 10);
+            return ($user->role == 0 || $user->role == 10);
           });
         //role5,10( 開発と品管)のみ許可
         Gate::define('dv&qc', function ($user) {
-          return ($user->role == 5 || $user->role = 10);
+          return ($user->role == 5 || $user->role == 10);
         });
         //role0,5,10(営業、開発部、品質管理部)どちらでも許可
         Gate::define('all', function ($user) {

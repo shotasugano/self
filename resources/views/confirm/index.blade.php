@@ -94,7 +94,7 @@
                                     <td>{{ $Eitem->name }}</td>
                                     <td>{{ $Eitem->type }}</td>
                                     <td>{{ $Eitem->detail }}</td>
-                                    <td><a href="confirms/editaddmove/{{$Eitem->id}}">>>詳細確認TODO</a></td>
+                                    <td><a href="confirms/editaddmove/{{$Eitem->id}}">>>詳細確認</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

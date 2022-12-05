@@ -234,7 +234,6 @@ return [
             'text' => '通知',
             'url'  => 'confirms',  //TODO 
             'icon' => 'fas fa-gamepad',
-            'can' => 'dv&qc',
         ],
         [
             'text' => '新商品申請',
