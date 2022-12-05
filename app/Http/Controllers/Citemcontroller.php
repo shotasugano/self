@@ -9,7 +9,7 @@ use App\Models\Item;
 use App\Models\Citem;
 use App\Models\History;
 
-class Citemcontroller extends Controller
+class CitemController extends Controller
 {
 /**
 * Create a new controller instance.
