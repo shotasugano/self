@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\History;
+use Illuminate\Support\Facades\DB;
 
 class HistoryController extends Controller
 {
@@ -11,6 +12,8 @@ class HistoryController extends Controller
     {
                 History::where('id',$request->id)
                 ->delete();
-                return redirect('items.history');
+                $histories = DB::table('histories')
+                ->get();
+                return view('item.history',compact('histories'));
     }
 }
