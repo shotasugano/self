@@ -36,7 +36,10 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('sl&qc', function ($user) {
             return ($user->role == 0 || $user->role = 10);
           });
-
+        //role5,10( 開発と品管)のみ許可
+        Gate::define('dv&qc', function ($user) {
+          return ($user->role == 5 || $user->role = 10);
+        });
         //role0,5,10(営業、開発部、品質管理部)どちらでも許可
         Gate::define('all', function ($user) {
             return ($user->role >= 0);
