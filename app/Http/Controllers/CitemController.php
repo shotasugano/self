@@ -90,7 +90,7 @@ public function editappdelete(Request $request)
         if( Auth::user()->role == 10){
         // 商品一覧取得
        $Citems = DB::select('select `c`.`id`,`i`.`name` AS `INAME`, `c`.`name`,`i`.`type` AS `ITYPE`, `c`.`type`,`i`.`detail` AS `IDETAIL`,`c`.`detail`,`c`.`item_id`
-         from `citems` as `c` inner join `items` as `i` on  `c`.`item_id` = `i`.`id` where `i`.`name` != `c`.`name`;');
+         from `citems` as `c` inner join `items` as `i` on  `c`.`item_id` = `i`.`id` where `i`.`name` != `c`.`name` or `i`.`type` != `c`.`type` or `i`.`detail` != `c`.`detail`;');
         $Ditems = DB::table('citems as c')
         ->rightJoin('items as i', 'i.id', '=', 'c.item_id')
         ->wherenull('c.name')     //citemsがNULLのものを
