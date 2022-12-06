@@ -71,7 +71,6 @@ public function editapp (Request $request)
             ::where('items.status', 'active')
             ->select()
             ->get();
-
             return view('item.index',['text' => '削除申請したアイテムです'],compact('items'));
         }
         }
