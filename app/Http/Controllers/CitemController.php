@@ -47,6 +47,8 @@ public function editapp (Request $request)
         // 取得したファイル名でsampleディレクトリに画像を保存
         //$img->storeAs('public/sample',$img_name);
             // 編集申請DBへ情報の更新
+            if(DB::table('citems')->where('item_id', $request->id)->exists()) {
+                
             Citem::where('item_id',$request->id)
             ->update([
                 'user_id' => Auth::user()->id,
@@ -63,6 +65,15 @@ public function editapp (Request $request)
             // sampleディレクトリに画像を保存
             //$request->id->file('image')->store('public/' . $dir);
             return redirect('/items');
+        }else{
+        // 商品一覧取得
+        $items = Item
+            ::where('items.status', 'active')
+            ->select()
+            ->get();
+
+            return view('item.index',['text' => '削除申請したアイテムです'],compact('items'));
+        }
         }
 /**
 * 削除申請
